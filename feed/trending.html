@@ -1,0 +1,147 @@
+	     <style>
+    body { background-color: #efefef; }
+</style>
+<base target="_parent">
+       <!-- CORE CSS-->    
+	          <link rel="stylesheet" href="https://ghostapp.pw/night_css" type="text/css" />
+    <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- CSS for full screen (Layout-2)-->    
+    <link href="css/layouts/style-fullscreen.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->    
+    <link href="css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css" />
+    
+	         <title>Trending</title>
+	    	 <main id="content" role="main" class="span12">
+		<!-- Begin Content -->
+		<div id="hyv-page-container" style="clear:both;">
+			 <div class="hyv-content-alignment">
+				 <div id="hyv-page-content" class="" style="overflow:hidden;">
+					 <div class="container-4">
+					 </div>
+
+					 <div id="hyv-watch-content" class="hyv-watch-main-col hyv-card hyv-card-has-padding">
+					     <!--	 <ul id="" class="hyv-video-list">-->
+					     <!--<li class="hyv-video-list-item"><div class="hyv-content-wrapper">&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239; &#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;<a target="_parent" href="/watch?v=EACdHaohVWA" class="hyv-content-link" title="'+e.snippet.title+'"><span class="title"><font color=>Lil Uzi Vert - Mood (Diamonds / Mess Up My Mood) [Prod. TM88, Southside, Supah Mario]</font></span><span class="stat attribution"> </span></span></a></div><div class="hyv-thumb-wrapper">&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239; &#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;<a target="_parent" href="/watch?v=EACdHaohVWA" class="hyv-thumb-link"><span class="hyv-simple-thumb-wrap"><img alt="ad" src="https://i.ytimg.com/vi/EACdHaohVWA/mqdefault.jpg" width="246" height="138"></span></a><span class="stat attribution"> by <span> <a href="/channel/UCXuFLYIALUr3j7-JXwiceuw"><font color=>Ghost</font></a></span></span></div>-->
+					     
+					     <!--</li>-->
+					     <!--   	 </ul>-->
+						 <ul id="hyv-watch-related" class="hyv-video-list">
+						     
+						 </ul>
+					 </div>
+					
+				 </div>
+			 </div>
+		 </div>
+	 </main>
+	   <style type="text/css"> #hyv-searchBtn{ display:none; } body{ background-color: #efefef; } .container-4 input#hyv-search { width: 500px; height: 30px; border: 1px solid #c6c6c6; font-size: 10pt; float: left; padding-left: 15px; -webkit-border-top-left-radius: 5px; -webkit-border-bottom-left-radius: 5px; -moz-border-top-left-radius: 5px; -moz-border-bottom-left-radius: 5px; border-top-left-radius: 5px; border-bottom-left-radius: 5px; } .container-4 button.icon { height: 30px; background: #f0f0f0 url('images/searchicon.png') 10px 1px no-repeat; background-size: 24px; -webkit-border-top-right-radius: 5px; -webkit-border-bottom-right-radius: 5px; -moz-border-radius-topright: 5px; -moz-border-radius-bottomright: 5px; border-top-right-radius: 5px; border-bottom-right-radius: 5px; border: 1px solid #c6c6c6; width: 50px; margin-left: -44px; color: #4f5b66; font-size: 10pt; } 
+    .material-icons {user-select: none;
+        -moz-user-select: none;
+        -khtml-user-select: none;
+        -webkit-user-select: none;
+        -o-user-select: none;
+    }
+    </style>
+     <script>
+        $(document).ready(function() {
+     $('#bodyy').show();
+});
+    </script>
+    <script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
+<script src="https://apis.google.com/js/platform.js"></script>
+    <!-- For Windows Phone -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+    <!-- CORE CSS-->    
+    <link href="https://cdn.ghostapp.pw/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!--<link href="https://cdn.ghostapp.pw/css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">-->
+    <!-- CSS for full screen (Layout-2)-->    
+    <link href="https://cdn.ghostapp.pw/css/layouts/style-fullscreen.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <!-- Custome CSS-->    
+    <link href="https://cdn.ghostapp.pw/css/custom/custom.min.css" type="text/css" rel="stylesheet" media="screen,projection">
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" type="text/css" />
+	    <script> $(document).ready(function() {
+	 $("#pageTokenNext").on( "click", function( event ) {
+		 $("#pageToken").val($("#pageTokenNext").val());
+		 youtubeApiCall();
+	 });
+	 $("#pageTokenPrev").on( "click", function( event ) {
+		 $("#pageToken").val($("#pageTokenPrev").val());
+		 youtubeApiCall();
+	 });
+	 $("#hyv-searchBtn").on( "click", function( event ) {
+		 youtubeApiCall();
+		 return false;
+	 });
+	 jQuery( "#hyv-search" ).autocomplete({
+		 source: function( request, response ) {
+			 //console.log(request.term);
+			 var sqValue = [];
+			 jQuery.ajax({
+				 type: "POST",
+				 url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1",
+				 dataType: 'jsonp',
+				 data: jQuery.extend({
+				 q: request.term
+				 }, { }),
+				 success: function(data){
+					 console.log(data[1]);
+					 obj = data[1];
+					 jQuery.each( obj, function( key, value ) {
+						 sqValue.push(value[0]);
+					 });
+					 response( sqValue);
+				 }
+			 });
+		 },
+		 select: function( event, ui ) {
+		 setTimeout( function () { 
+		 youtubeApiCall();
+		 }, 300);
+
+		 }
+	 }); 
+});</script>
+<script>
+
+
+ $.ajax({
+	 cache: false,
+	 data: $.extend({
+		 key: 'AIzaSyC9BO4kBEey2zQqFFTsVy8YqfmmfuxI4No',
+         part: 'snippet',
+         chart: 'mostPopular',
+         regionCode: 'US'
+	 }, {maxResults:5
+	 },pageToken:$("#pageToken").val()}),
+	 dataType: 'json',
+	 type: 'GET',
+	 timeout: 5000,
+	 url: 'https://www.googleapis.com/youtube/v3/videos'
+ })
+.done(function(data) {
+	$('.btn-group').show();
+	 if (typeof data.prevPageToken === "undefined") {
+	 	$("#pageTokenPrev").hide();}else{$("#pageTokenPrev").show();
+	 }
+	 if (typeof data.nextPageToken === "undefined") {
+	 	$("#pageTokenNext").hide();}else{$("#pageTokenNext").show();
+	 }
+	 var items = data.items, videoList = "";
+	 $("#pageTokenNext").val(data.nextPageToken);
+	 $("#pageTokenPrev").val(data.prevPageToken);
+	 $.each(items, function(index,e) {
+		 videoList = videoList + '<li class="hyv-video-list-item"><div class="hyv-content-wrapper">&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239; &#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;<a target="_parent" href="/watch?v='+e.id+'" class="hyv-content-link" title="'+e.snippet.title+'"><span class="title"><font color=>'+e.snippet.title+'</font></span><span class="stat attribution"> </span></span></a></div><div class="hyv-thumb-wrapper">&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239; &#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;&#8239;<a target="_parent" href="/watch?v='+e.id+'" class="hyv-thumb-link"><span class="hyv-simple-thumb-wrap"><img alt="'+e.snippet.title+'" src="'+e.snippet.thumbnails.medium.url+'" width="246" height="138"></span></a><span class="stat attribution"> by <span> <a href="/channel/'+e.snippet.channelId+'"><font color=>'+e.snippet.channelTitle+'</font></a></span></span></div></li>';
+	     
+	 });
+	 $("#hyv-watch-related").html(videoList);
+	 // JSON Responce to display for user
+	 new PrettyJSON.view.Node({
+		 el:$(".hyv-watch-sidebar-body"), 
+		 data:data
+	 });
+ });
+</script>
