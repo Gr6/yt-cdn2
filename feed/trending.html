@@ -1,8 +1,9 @@
-	     <style>
+<style>
     body { background-color: #efefef; }
 </style>
 <base target="_parent">
-       <!-- CORE CSS-->    
+	    
+	      <!-- CORE CSS-->    
 	          <link rel="stylesheet" href="https://ghostapp.pw/night_css" type="text/css" />
     <link href="css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
     <link href="css/style.min.css" type="text/css" rel="stylesheet" media="screen,projection">
@@ -115,8 +116,7 @@
          part: 'snippet',
          chart: 'mostPopular',
          regionCode: 'US'
-	 }, {maxResults:5
-	 },pageToken:$("#pageToken").val()}),
+	 }, {maxResults:5,pageToken:$("#pageToken").val()}),
 	 dataType: 'json',
 	 type: 'GET',
 	 timeout: 5000,
@@ -145,3 +145,4 @@
 	 });
  });
 </script>
+	    
