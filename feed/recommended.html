@@ -672,105 +672,105 @@ Remove or comment-out the code block below to see how the browser will fall-back
         $(document).ready(function() {
      $('#bodyy').show();
 $.urlParam = function(name){
-	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	return results[1] || 0;
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
 }
 
 console.log($.urlParam('id'));  
 });
     </script>
 
-	 <main id="content" role="main" class="span12">
-		<!-- Begin Content -->
-	
-		<div id="hyv-page-container" style="clear:both;">
-			 <div class="hyv-content-alignment">
-				 <div id="hyv-page-content" class="" style="overflow:hidden;">
-					 <div class="container-4">
-					 </div>
+     <main id="content" role="main" class="span12">
+        <!-- Begin Content -->
+    
+        <div id="hyv-page-container" style="clear:both;">
+             <div class="hyv-content-alignment">
+                 <div id="hyv-page-content" class="" style="overflow:hidden;">
+                     <div class="container-4">
+                     </div>
 
-					 <div id="hyv-watch-content" class="hyv-watch-main-col hyv-card hyv-card-has-padding">
-					     <ul id="hyv-watch-live" class="hyv-video-list">
-						 
-						 </ul>
-					
-						 <ul id="hyv-watch-related" class="hyv-video-list">
-						 </ul>
-					 </div>
-					
-				 </div>
-			 </div>
-		 </div>
-	 </main>
+                     <div id="hyv-watch-content" class="hyv-watch-main-col hyv-card hyv-card-has-padding">
+                         <ul id="hyv-watch-live" class="hyv-video-list">
+                         
+                         </ul>
+                    
+                         <ul id="hyv-watch-related" class="hyv-video-list">
+                         </ul>
+                     </div>
+                    
+                 </div>
+             </div>
+         </div>
+     </main>
 
-	
+    
 
  
  
  <!--<div style="position:absolute;" class="row-fluid pull-rr">-->
- <!--   		<h4>Featured Channels</h4>-->
+ <!--           <h4>Featured Channels</h4>-->
  
  <script type="text/javascript"> $(document).ready(function() {
-	 $("#pageTokenNext").on( "click", function( event ) {
-		 $("#pageToken").val($("#pageTokenNext").val());
-		 youtubeApiCall();
-	 });
-	 $("#pageTokenPrev").on( "click", function( event ) {
-		 $("#pageToken").val($("#pageTokenPrev").val());
-		 youtubeApiCall();
-	 });
-	 $("#hyv-searchBtn").on( "click", function( event ) {
-		 youtubeApiCall();
-		 return false;
-	 });
-	 jQuery( "#hyv-search" ).autocomplete({
-		 source: function( request, response ) {
-			 //console.log(request.term);
-			 var sqValue = [];
-			 jQuery.ajax({
-				 type: "POST",
-				 url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1",
-				 dataType: 'jsonp',
-				 data: jQuery.extend({
-				 q: request.term
-				 }, { }),
-				 success: function(data){
-					 console.log(data[1]);
-					 obj = data[1];
-					 jQuery.each( obj, function( key, value ) {
-						 sqValue.push(value[0]);
-					 });
-					 response( sqValue);
-				 }
-			 });
-		 },
-		 select: function( event, ui ) {
-		 setTimeout( function () { 
-		 youtubeApiCall();
-		 }, 300);
-		 }
-	 }); 
+     $("#pageTokenNext").on( "click", function( event ) {
+         $("#pageToken").val($("#pageTokenNext").val());
+         youtubeApiCall();
+     });
+     $("#pageTokenPrev").on( "click", function( event ) {
+         $("#pageToken").val($("#pageTokenPrev").val());
+         youtubeApiCall();
+     });
+     $("#hyv-searchBtn").on( "click", function( event ) {
+         youtubeApiCall();
+         return false;
+     });
+     jQuery( "#hyv-search" ).autocomplete({
+         source: function( request, response ) {
+             //console.log(request.term);
+             var sqValue = [];
+             jQuery.ajax({
+                 type: "POST",
+                 url: "https://suggestqueries.google.com/complete/search?hl=en&ds=yt&client=youtube&hjson=t&cp=1",
+                 dataType: 'jsonp',
+                 data: jQuery.extend({
+                 q: request.term
+                 }, { }),
+                 success: function(data){
+                     console.log(data[1]);
+                     obj = data[1];
+                     jQuery.each( obj, function( key, value ) {
+                         sqValue.push(value[0]);
+                     });
+                     response( sqValue);
+                 }
+             });
+         },
+         select: function( event, ui ) {
+         setTimeout( function () { 
+         youtubeApiCall();
+         }, 300);
+         }
+     }); 
 });</script>
 <script type="text/javascript">
 $.urlParam = function(name){
-	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
-	return results[1] || 0;
+    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+    return results[1] || 0;
 }
 
  $.ajax({
-	 cache: false,
-	 data: $.extend({
-		 key: 'AIzaSyC9BO4kBEey2zQqFFTsVy8YqfmmfuxI4No',
-		 q: $('#hyv-search').val(),
-		 part: 'snippet',
-		 channelId: $.urlParam('id'),
-		 order: 'date',
-		 type: 'video'
-	 }, {maxResults:1,pageToken:$("#pageToken").val()}),
-	 dataType: 'json',
-	 type: 'GET',
-	 timeout: 5000,
-	 url: 'https://www.googleapis.com/youtube/v3/search'
+     cache: false,
+     data: $.extend({
+         key: 'AIzaSyC9BO4kBEey2zQqFFTsVy8YqfmmfuxI4No',
+         q: $('#hyv-search').val(),
+         part: 'snippet',
+         channelId: $.urlParam('id'),
+         order: 'date',
+         type: 'video'
+     }, {maxResults:1,pageToken:$("#pageToken").val()}),
+     dataType: 'json',
+     type: 'GET',
+     timeout: 5000,
+     url: 'https://www.googleapis.com/youtube/v3/search'
  })
 .done(function(data) {
     $('.btn-group').show();
@@ -784,7 +784,7 @@ $.urlParam = function(name){
      $("#pageTokenNext").val(data.nextPageToken);
      $("#pageTokenPrev").val(data.prevPageToken);
      $.each(items, function(index,e) {
-         videoList = videoList + '<div class="playlist-video"> <div class="video-thumbnail"> <a href="/watch?v='+e.id.videoId+'"><img src="'+e.snippet.thumbnails.medium.url+'" class="resize" alt=""> </a> </div> <div class="video-info"> <h3 class="video-title">'+e.snippet.title+'</h3> <ul class="video-meta-data"> <!-- <li class="video-views">NULL views</li> <li class="video-upload-date">null days ago</li> --> </ul> </div> </div>';
+         videoList = videoList + '<div class="playlist-video"> <div class="video-thumbnail"> <a href="https://r6tools.pw/watch?v='+e.id.videoId+'"><img src="'+e.snippet.thumbnails.medium.url+'" class="resize" alt=""> </a> </div> <div class="video-info"> <h3 class="video-title">'+e.snippet.title+'</h3> <ul class="video-meta-data"> <!-- <li class="video-views">NULL views</li> <li class="video-upload-date">null days ago</li> --> </ul> </div> </div>';
          
      });
      $("#hyv-watch-related").html(videoList);
