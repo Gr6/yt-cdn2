@@ -1,58 +1,665 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <base target="_parent">
-    <script src="/cdn-cgi/apps/head/t4LqKHsyB1Hme9PaFoTKFE4duyU.js"></script><style>body{
-    background-color: #efefef;
-    }</style>
-    <title>- null</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="msapplication-tap-highlight" content="no">
-    <meta name="description" content="">
-    <meta name="keywords" content="">
-   <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
 
-<style>
-        hr { border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3); width:96%;}
-        
-            .split-history { border: 0; height: 0; border-top: 1px solid rgba(0, 0, 0, 0.1); border-bottom: 1px solid rgba(255, 255, 255, 0.3); float:left; margin-left:15px; width:23%;}
-            
-            .ghstImg {
-    
-}
-
-
-</style>
-    <!-- Favicons-->
-     <link rel="stylesheet" href="https://r6tools.pw/app/night" type="text/css" />
-    <link rel="icon" href="https://www.youtube.com/yts/img/ringo/img/favicon_144-vfliLAfaB.png" sizes="144x144">
-    <!-- Favicons-->
-    <link rel="apple-touch-icon-precomposed" href="images/favicon/apple-touch-icon-152x152.png">
-    <!-- For iPhone -->
-    <meta name="msapplication-TileColor" content="#00bcd4">
-    
-    <meta name="msapplication-TileImage" content="images/favicon/mstile-144x144.png">
-    <!-- For Windows Phone -->
-<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-
-    <!-- CORE CSS-->    
-    <link href="https://cdn.r6tools.pw/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection">
-   
-    
 
 <script src="//code.jquery.com/jquery-2.1.4.js" type="text/javascript"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js" type="text/javascript"></script>
-<script src="https://apis.google.com/js/platform.js"></script>
-<script src="https://cdn.r6tools.pw/js/url.js?"></script>
+<script src="https://apis.google.com/js/platform.js" type="text/javascript"></script>
+<script src="https://cdn.r6tools.pw/js/url.js?" type="text/javascript"></script>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js" type="text/javascript"></script>
       
 
+<style>
+    /*
 
+All grid code is placed in a 'supports' rule (feature query) at the bottom of the CSS (Line 474). 
+        
+The 'supports' rule will only run if your browser supports CSS grid.
+
+Flexbox is used as a fallback so that browsers which don't support grid will still recieve an identical layout.
+
+*/
+
+/* Fonts */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,600);
+@import url(https://fonts.googleapis.com/css?family=Oswald:600);
+@import url(https://use.fontawesome.com/releases/v5.0.6/css/all.css);
+
+/* Base styles */
+
+:root {
+    /* Base font size */
+    font-size: 10px;
+
+    /* Text color variables */
+    --grey-text: #828282;
+    --black-text: #111;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+.resize {
+    width: 200px !important;
+    height: auto !important;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto", Arial, sans-serif;
+    min-height: 100vh;
+}
+
+.container {
+    max-width: 138rem;
+    margin: 0 auto;
+    padding: 0 2vw;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+::-webkit-scrollbar {
+    width: 1.2rem;
+    height: 1.2rem;
+}
+
+::-webkit-scrollbar-track {
+    background-color: #fff;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 0.5rem;
+    border: 0.2rem solid #fff;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #666;
+}
+
+/* Masthead */
+
+.masthead {
+    display: flex;
+    flex-basis: 5.6rem;
+    align-items: center;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
+    padding: 0 2.2rem;
+    box-shadow: 0 0.2rem 0.2rem rgba(17, 17, 17, 0.2);
+    z-index: 1;
+}
+
+.logo {
+    flex: 0 0 15rem;
+    margin-left: 2.5rem;
+}
+
+.site-search {
+    flex-grow: 1;
+    margin: 0 2.5rem;
+}
+
+.menu-btn {
+    font-size: 1.6rem;
+    color: #888;
+    padding: 0 0.5rem;
+}
+.menu-btn-opened {
+    font-size: 1.6rem;
+    color: #888;
+    padding: 0 0.5rem;
+    display:none;
+}
+
+.logo h1 {
+    font-family: "Oswald", Arial, sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    letter-spacing: -0.12rem;
+    color: #282828;
+    white-space: nowrap;
+    cursor: pointer;
+}
+
+.logo-icon {
+    color: #f00;
+    padding-right: 0.5rem;
+}
+
+.site-search {
+    display: flex;
+    height: 3.2rem;
+}
+
+.search-input,
+.search-btn {
+    border: 0.1rem solid #ccc;
+}
+
+.search-input {
+    flex-basis: 60rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-right: none;
+    padding-left: 1rem;
+    color: var(--black-text);
+}
+
+.search-input::-webkit-input-placeholder {
+    color: var(--grey-text);
+}
+
+.search-input:-ms-input-placeholder {
+    color: var(--grey-text);
+}
+
+.search-input::-ms-input-placeholder {
+    color: var(--grey-text);
+}
+
+.search-input::placeholder {
+    color: var(--grey-text);
+}
+
+.search-btn {
+    flex: 0 0 6.5rem;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    background-color: #f8f8f8;
+    color: var(--black-text);
+    cursor: pointer;
+}
+
+.search-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.user-menu {
+    flex-basis: 16rem;
+    display: flex;
+    font-size: 1.6rem;
+    color: var(--grey-text);
+}
+
+.user-menu .btn {
+    flex: 0 0 4rem;
+}
+
+/* Channel banner */
+
+.channel-banner {
+    flex-basis: 16vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: url("/lib/channel_banner?channelId=")
+        no-repeat center 50%;
+    background-size: cover;
+    padding: 1.6rem;
+}
+
+.channel-social-links {
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.channel-social-links li {
+    display: inline-block;
+    font-size: 1.8rem;
+    padding-right: 1rem;
+}
+
+.channel-social-links li:last-of-type {
+    padding-right: 0;
+}
+
+.google-plus {
+    color: #dd4d40;
+}
+
+.twitter {
+    color: #1da1f3;
+}
+
+.facebook {
+    color: #3b5999;
+}
+
+/* Channel info */
+
+.channel-info {
+    background-color: #fafafa;
+    padding-top: 1.6rem;
+}
+
+.channel-info .container {
+    display: flex;
+    align-items: center;
+}
+
+.channel-icon {
+    flex-basis: 8rem;
+    
+    border-radius: 50%;
+    overflow: hidden;
+width: 88px;
+height: 88px;
+}
+
+.channel-title {
+    flex: 1 1 auto;
+    margin: 0 2rem;
+}
+
+.channel-title h1 {
+    font-size: 2.4rem;
+    font-weight: 400;
+    color: var(--black-text);
+    white-space: nowrap;
+}
+
+.channel-title i {
+    font-size: 1.4rem;
+    color: #6e6e6e;
+}
+
+.channel-subscriber-count {
+    font-size: 1.4rem;
+    font-weight: 400;
+    line-height: 1.8;
+    color: var(--grey-text);
+}
+
+.channel-subscribe {
+    display: flex;
+    height: 3.7rem;
+    color: var(--grey-text);
+}
+
+.subscribe-btn {
+    width: 14.2rem;
+    font-size: 1.4rem;
+    font-weight: 500;
+    background-color: #eee;
+    margin-right: 0.4rem;
+}
+
+.notification-btn {
+    width: 4rem;
+    font-size: 2rem;
+}
+
+/* Channel navigation */
+
+.channel-nav {
+    background-color: #fafafa;
+    padding-bottom: 0.5rem;
+    white-space: nowrap;
+    overflow-x: auto;
+}
+
+.channel-nav ul {
+    display: flex;
+}
+
+.nav-item a {
+    display: inline-block;
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--grey-text);
+    padding: 1.5rem 3.2rem;
+}
+a{
+    text-decoration: none;
+}
+
+.nav-item a.current {
+    color: var(--black-text);
+    border-bottom: 0.3rem solid #6e6e6e;
+}
+
+.nav-item a:hover {
+    color: var(--black-text);
+}
+
+/* Channel content */
+
+.channel-content .container {
+    display: flex;
+    padding-top: 2.4rem;
+    padding-bottom: 2.4rem;
+    color: var(--grey-text);
+}
+
+.channel-videos {
+    display: flex;
+    flex-direction: column;
+    min-width: 42.5rem;
+    max-width: 107rem;
+}
+
+.video-title {
+    color: var(--black-text);
+}
+
+.video-meta-data,
+.video-description {
+    font-size: 1.3rem;
+    font-weight: 400;
+}
+
+.video-description {
+    max-width: 60rem;
+    line-height: 1.4;
+}
+
+.video-meta-data li {
+    display: inline-block;
+}
+
+.video-creator {
+    padding-right: 0.4rem;
+}
+
+.video-views::after {
+    content: "\00B7";
+    font-size: 2.2rem;
+    padding-left: 0.4rem;
+    vertical-align: middle;
+}
+
+/* Featured video */
+
+.featured-video {
+    display: flex;
+    cursor: pointer;
+}
+
+.featured-video .video-info {
+    flex: 1;
+}
+
+.featured-video .video-thumbnail {
+    margin-right: 1.5rem;
+}
+
+.featured-video .video-title {
+    font-size: 1.8rem;
+    font-weight: 400;
+}
+
+/* Video playlists */
+
+.playlist {
+    position: relative;
+    padding-bottom: 1rem;
+    overflow-x: auto;
+    margin-top: 2rem;
+}
+
+.playlist-title {
+    font-size: 1.6rem;
+    font-weight: 500;
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    border-top: 0.1rem solid #eee;
+    padding: 2rem 0;
+    color: var(--black-text);
+}
+
+.playlist-videos {
+    display: flex;
+}
+
+.playlist-video {
+    flex-basis: 21rem;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+
+.playlist-video .video-title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+}
+
+.playlist-video .video-creator {
+    display: block;
+}
+
+/* Recommended channels */
+
+.recommended-channels {
+    margin-left: 2rem;
+}
+
+.recommended-channels-heading {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    color: var(--grey-text);
+    margin-bottom: 2rem;
+}
+
+.recommended-channels-group:first-of-type {
+    margin-bottom: 2rem;
+    border-bottom: 0.1rem solid #eee;
+}
+
+.recommended-channel {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding-bottom: 2rem;
+    cursor: pointer;
+}
+
+.recommended-channel-icon {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 0.8rem;
+}
+
+.recommended-channel-title {
+    flex: 1 0 50%;
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--black-text);
+}
+
+.recommended-channel-subscribe {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--grey-text);
+    background-color: #eee;
+    width: 10rem;
+    height: 2.4rem;
+    margin-top: 0.8rem;
+}
+
+/*
+
+The following rule will only run if your browser supports CSS grid.
+
+Remove or comment-out the code block below to see how the browser will fall-back to flexbox styling. 
+
+*/
+
+@supports (display: grid) {
+    body {
+        display: grid;
+        grid-template-rows: 5.6rem 16vw repeat(3, auto);
+    }
+
+    .masthead {
+        display: grid;
+        grid-template-columns: auto 15rem 1fr 16rem;
+        grid-column-gap: 2.5rem;
+    }
+
+    .site-search {
+        display: grid;
+        grid-template-columns: minmax(0, 60rem) 6.5rem;
+    }
+
+    .user-menu {
+        display: grid;
+        grid-template-columns: repeat(4, 4rem);
+    }
+
+    .channel-info .container {
+        display: grid;
+        grid-template-columns: 8rem minmax(auto, 1fr) auto;
+        grid-column-gap: 2rem;
+    }
+
+    .channel-subscribe {
+        display: grid;
+        grid-template-columns: repeat(2, auto);
+        grid-column-gap: 0.4rem;
+    }
+
+    .channel-content .container {
+        display: grid;
+        grid-template-columns: 5fr 1fr;
+        grid-gap: 2rem;
+    }
+
+    .channel-videos {
+        display: grid;
+        grid-row-gap: 2rem;
+        max-width: 100%;
+    }
+
+    .featured-video {
+        display: grid;
+        grid-template-columns: auto 1fr;
+        grid-gap: 1.5rem;
+    }
+
+    .playlist-videos {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: 21rem;
+        grid-column-gap: 0.5rem;
+    }
+
+    .recommended-channel {
+        display: grid;
+        grid-template-columns: 2.4rem 1fr;
+        grid-gap: 0.8rem;
+    }
+
+    .recommended-channel-subscribe {
+        grid-column: 1 / -1;
+    }
+
+    .logo,
+    .site-search,
+    .channel-title,
+    .subscribe-btn,
+    .playlist,
+    .featured-video .video-thumbnail,
+    .playlist-video,
+    .recommended-channels,
+    .recommended-channel-icon,
+    .recommended-channel-subscribe {
+        margin: 0;
+    }
+
+    @media screen and (max-width: 60rem) {
+        .masthead {
+            grid-template-columns: auto 1fr 16rem;
+        }
+
+        .channel-info .container {
+            grid-template-columns: repeat(2, auto);
+        }
+
+        .channel-content .container {
+            grid-template-columns: minmax(42.5rem, 1fr);
+        }
+    }
+}
+
+/* Media queries */
+
+@media screen and (max-width: 60rem) {
+    .logo {
+        flex-grow: 1;
+    }
+
+    .channel-info {
+        padding-bottom: 1.6rem;
+    }
+
+    .channel-info .container {
+        justify-content: space-around;
+    }
+
+    .channel-title,
+    .channel-subscribe {
+        flex: 0 0 auto;
+        margin: 0;
+    }
+
+    .channel-title h1 {
+        font-size: 1.8rem;
+    }
+
+    .channel-videos {
+        max-width: 100%;
+    }
+
+    .recommended-channels,
+    .channel-icon,
+    .site-search {
+        display: none;
+    }
+}
+</style></head><body>
+    <!--Side Nav-->
+    <style>
+    .side-nav-iframe {
+    position:absolute !important;
+    top:7% !important;;
+    float: left !important;
+    height: 100%;
+    display:none;
+    }
+    .side-nav-iframe-opened {
+    position:absolute !important;
+    top:7% !important;;
+    float: left !important;
+    height: 100%;
+    }
+</style>
 
 
 
@@ -61,7 +668,7 @@
 
 
       
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
      $('#bodyy').show();
 $.urlParam = function(name){
@@ -103,7 +710,7 @@ console.log($.urlParam('id'));
  <!--<div style="position:absolute;" class="row-fluid pull-rr">-->
  <!--   		<h4>Featured Channels</h4>-->
  
- <script> $(document).ready(function() {
+ <script type="text/javascript"> $(document).ready(function() {
 	 $("#pageTokenNext").on( "click", function( event ) {
 		 $("#pageToken").val($("#pageTokenNext").val());
 		 youtubeApiCall();
@@ -144,7 +751,7 @@ console.log($.urlParam('id'));
 		 }
 	 }); 
 });</script>
-<script>
+<script type="text/javascript">
 $.urlParam = function(name){
 	var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
 	return results[1] || 0;
@@ -166,30 +773,30 @@ $.urlParam = function(name){
 	 url: 'https://www.googleapis.com/youtube/v3/search'
  })
 .done(function(data) {
-	$('.btn-group').show();
-	 if (typeof data.prevPageToken === "undefined") {
-	 	$("#pageTokenPrev").hide();}else{$("#pageTokenPrev").show();
-	 }
-	 if (typeof data.nextPageToken === "undefined") {
-	 	$("#pageTokenNext").hide();}else{$("#pageTokenNext").show();
-	 }
-	 var items = data.items, videoList = "";
-	 $("#pageTokenNext").val(data.nextPageToken);
-	 $("#pageTokenPrev").val(data.prevPageToken);
-	 $.each(items, function(index,e) {
-		 videoList = videoList + '<li><div class="card33"><div class="hyv-content-wrapper"><a href="https://r6tools.pw/watch?v='+e.id.videoId+'" class="hyv-content-link" title="'+e.snippet.title+'"><span class="title"><font color=>'+e.snippet.title+'</font></span><span class="stat attribution"> </span></span></a></div><div class="hyv-thumb-wrapper">&nbsp; <a href="https://r6tools.pw/watch?v='+e.id.videoId+'" class="hyv-thumb-link"><span class="hyv-simple-thumb-wrap"><img alt="'+e.snippet.title+'" src="'+e.snippet.thumbnails.medium.url+'" width="246" height="138"></span></a><!--<span class="stat attribution"> by <span> <a style="color: #000000;" class="hyv-content-link" href="https:/r6tools.pw/channel/'+e.snippet.channelId+'">'+e.snippet.channelTitle+'</a></span></span>--> </div></div></li>';
-	     
-	 });
-	 $("#hyv-watch-related").html(videoList);
-	 // JSON Responce to display for user
-	 new PrettyJSON.view.Node({
-		 el:$(".hyv-watch-sidebar-body"), 
-		 data:data
-	 });
+    $('.btn-group').show();
+     if (typeof data.prevPageToken === "undefined") {
+         $("#pageTokenPrev").hide();}else{$("#pageTokenPrev").show();
+     }
+     if (typeof data.nextPageToken === "undefined") {
+         $("#pageTokenNext").hide();}else{$("#pageTokenNext").show();
+     }
+     var items = data.items, videoList = "";
+     $("#pageTokenNext").val(data.nextPageToken);
+     $("#pageTokenPrev").val(data.prevPageToken);
+     $.each(items, function(index,e) {
+         videoList = videoList + '<div class="playlist-video"> <div class="video-thumbnail"> <a href="/watch?v='+e.id.videoId+'"><img src="'+e.snippet.thumbnails.medium.url+'" class="resize" alt=""> </a> </div> <div class="video-info"> <h3 class="video-title">'+e.snippet.title+'</h3> <ul class="video-meta-data"> <!-- <li class="video-views">NULL views</li> <li class="video-upload-date">null days ago</li> --> </ul> </div> </div>';
+         
+     });
+     $("#hyv-watch-related").html(videoList);
+     // JSON Responce to display for user
+     new PrettyJSON.view.Node({
+         el:$("video-placeholder"), 
+         data:data
+     });
  });
- 
+
 </script>
 
-</body>
+<script src="https://ajax.cloudflare.com/cdn-cgi/scripts/2448a7bd/cloudflare-static/rocket-loader.min.js" data-cf-nonce="" defer=""></script></body>
 
 </html>
