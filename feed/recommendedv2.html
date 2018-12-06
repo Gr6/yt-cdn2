@@ -761,6 +761,11 @@ console.log($.urlParam('id'));
      }); 
 });</script>
 <script type="text/javascript">
+    
+        var url = window.location.hostname;
+url = url.substring(4);
+    
+    
 $.urlParam = function(name){
     var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
     return results[1] || 0;
