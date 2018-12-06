@@ -793,7 +793,7 @@ $.urlParam = function(name){
      $("#pageTokenNext").val(data.nextPageToken);
      $("#pageTokenPrev").val(data.prevPageToken);
      $.each(items, function(index,e) {
-         videoList = videoList + '<div class="playlist-video"> <div class="video-thumbnail"> <a href="https://youtubee.icu/watch?v='+e.id.videoId+'"><img src="'+e.snippet.thumbnails.medium.url+'" class="resize" alt=""> </div> <div class="video-info"> <h3 class="video-title">'+e.snippet.title+'</h3></a>  <ul class="video-meta-data"> <!-- <li class="video-views">NULL views</li> <li class="video-upload-date">null days ago</li> --> </ul> </div> </div>';
+         videoList = videoList + '<div class="playlist-video"> <div class="video-thumbnail"> <a href="https://'+url+'/watch?v='+e.id.videoId+'"><img src="'+e.snippet.thumbnails.medium.url+'" class="resize" alt=""> </div> <div class="video-info"> <h3 class="video-title">'+e.snippet.title+'</h3></a>  <ul class="video-meta-data"> <!-- <li class="video-views">NULL views</li> <li class="video-upload-date">null days ago</li> --> </ul> </div> </div>';
          
      });
      $("#hyv-watch-related").html(videoList);
