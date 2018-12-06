@@ -1,0 +1,57 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <title></title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="googlebot" content="noindex, nofollow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+  <script
+    type="text/javascript"
+    src="/js/lib/dummy.js"
+    
+  ></script>
+
+    <link rel="stylesheet" type="text/css" href="/css/result-light.css">
+
+  <style type="text/css">
+    
+  </style>
+  <!-- TODO: Missing CoffeeScript 2 -->
+
+  <script type="text/javascript">
+
+
+    window.onload=function(){
+      
+!function(a){if("object"==typeof exports&&"undefined"!=typeof module)module.exports=a();else if("function"==typeof define&&define.amd)define([],a);else{var b;b="undefined"!=typeof window?window:"undefined"!=typeof global?global:"undefined"!=typeof self?self:this,b.psl=a()}}(function(){var a;return function b(a,c,d){function e(g,h){if(!c[g]){if(!a[g]){var i="function"==typeof require&&require;if(!h&&i)return i(g,!0);if(f)return f(g,!0);var j=new Error("Cannot find module '"+g+"'");throw j.code="MODULE_NOT_FOUND",j}var k=c[g]={exports:{}};a[g][0].call(k.exports,function(b){var c=a[g][1][b];return e(c?c:b)},k,k.exports,b,a,c,d)}return c[g].exports}for(var f="function"==typeof require&&require,g=0;g<d.length;g++)e(d[g]);return e}({1:[function(a,b,c){b.exports=["cdn2","cdn"];
+},{}],2:[function(a,b,c){function d(a,b){return-1!==a.indexOf(b,a.length-b.length)}function e(a){var b=g.toASCII(a);return h.reduce(function(a,c){var e=g.toASCII(c.suffix);return d(b,"."+e)||b===e?c:a},null)}function f(a){var b=g.toASCII(a);if(b.length<1)return"DOMAIN_TOO_SHORT";if(b.length>255)return"DOMAIN_TOO_LONG";var c,d,e=b.split("."),f=e.length;for(d=0;f>d;d++){if(c=e[d],!c.length)return"LABEL_TOO_SHORT";if(c.length>63)return"LABEL_TOO_LONG";if("-"===c.charAt(0))return"LABEL_STARTS_WITH_DASH";if("-"===c.charAt(c.length-1))return"LABEL_ENDS_WITH_DASH";if(!/^[a-z0-9\-]+$/.test(c))return"LABEL_INVALID_CHARS"}}var g=a("punycode"),h=a("./data/rules.json").map(function(a){return{rule:a,suffix:a.replace(/^(\*\.|\!)/,""),wildcard:"*"===a.charAt(0),exception:"!"===a.charAt(0)}});c.errorCodes={DOMAIN_TOO_SHORT:"Domain name too short.",DOMAIN_TOO_LONG:"Domain name too long. It should be no more than 255 chars.",LABEL_STARTS_WITH_DASH:"Domain name label can not start with a dash.",LABEL_ENDS_WITH_DASH:"Domain name label can not end with a dash.",LABEL_TOO_LONG:"Domain name label should be at most 63 chars long.",LABEL_TOO_SHORT:"Domain name label should be at least 1 character long.",LABEL_INVALID_CHARS:"Domain name label can only contain alphanumeric characters or dashes."},c.parse=function(a){function b(){return/xn--/.test(d)?(i.domain&&(i.domain=g.toASCII(i.domain)),i.subdomain&&(i.subdomain=g.toASCII(i.subdomain)),i):i}if("string"!=typeof a)throw new TypeError("Domain name must be a string.");var d=a.slice(0).toLowerCase();"."===d.charAt(d.length-1)&&(d=d.slice(0,d.length-1));var h=f(d);if(h)return{input:a,error:{message:c.errorCodes[h],code:h}};var i={input:a,tld:null,sld:null,domain:null,subdomain:null,listed:!1},j=d.split(".");if("local"===j[j.length-1])return i;var k=e(d);if(!k)return j.length<2?i:(i.tld=j.pop(),i.sld=j.pop(),i.domain=[i.sld,i.tld].join("."),j.length&&(i.subdomain=j.pop()),b());i.listed=!0;var l=k.suffix.split("."),m=j.slice(0,j.length-l.length);return k.exception&&m.push(l.shift()),m.length?(k.wildcard&&l.unshift(m.pop()),m.length?(i.tld=l.join("."),i.sld=m.pop(),i.domain=[i.sld,i.tld].join("."),m.length&&(i.subdomain=m.join(".")),b()):b()):b()},c.get=function(a){return a?c.parse(a).domain||null:null},c.isValid=function(a){var b=c.parse(a);return Boolean(b.domain&&b.listed)}},{"./data/rules.json":1,punycode:3}],3:[function(b,c,d){(function(b){!function(e){function f(a){throw RangeError(I[a])}function g(a,b){for(var c=a.length,d=[];c--;)d[c]=b(a[c]);return d}function h(a,b){var c=a.split("@"),d="";c.length>1&&(d=c[0]+"@",a=c[1]),a=a.replace(H,".");var e=a.split("."),f=g(e,b).join(".");return d+f}function i(a){for(var b,c,d=[],e=0,f=a.length;f>e;)b=a.charCodeAt(e++),b>=55296&&56319>=b&&f>e?(c=a.charCodeAt(e++),56320==(64512&c)?d.push(((1023&b)<<10)+(1023&c)+65536):(d.push(b),e--)):d.push(b);return d}function j(a){return g(a,function(a){var b="";return a>65535&&(a-=65536,b+=L(a>>>10&1023|55296),a=56320|1023&a),b+=L(a)}).join("")}function k(a){return 10>a-48?a-22:26>a-65?a-65:26>a-97?a-97:x}function l(a,b){return a+22+75*(26>a)-((0!=b)<<5)}function m(a,b,c){var d=0;for(a=c?K(a/B):a>>1,a+=K(a/b);a>J*z>>1;d+=x)a=K(a/J);return K(d+(J+1)*a/(a+A))}function n(a){var b,c,d,e,g,h,i,l,n,o,p=[],q=a.length,r=0,s=D,t=C;for(c=a.lastIndexOf(E),0>c&&(c=0),d=0;c>d;++d)a.charCodeAt(d)>=128&&f("not-basic"),p.push(a.charCodeAt(d));for(e=c>0?c+1:0;q>e;){for(g=r,h=1,i=x;e>=q&&f("invalid-input"),l=k(a.charCodeAt(e++)),(l>=x||l>K((w-r)/h))&&f("overflow"),r+=l*h,n=t>=i?y:i>=t+z?z:i-t,!(n>l);i+=x)o=x-n,h>K(w/o)&&f("overflow"),h*=o;b=p.length+1,t=m(r-g,b,0==g),K(r/b)>w-s&&f("overflow"),s+=K(r/b),r%=b,p.splice(r++,0,s)}return j(p)}function o(a){var b,c,d,e,g,h,j,k,n,o,p,q,r,s,t,u=[];for(a=i(a),q=a.length,b=D,c=0,g=C,h=0;q>h;++h)p=a[h],128>p&&u.push(L(p));for(d=e=u.length,e&&u.push(E);q>d;){for(j=w,h=0;q>h;++h)p=a[h],p>=b&&j>p&&(j=p);for(r=d+1,j-b>K((w-c)/r)&&f("overflow"),c+=(j-b)*r,b=j,h=0;q>h;++h)if(p=a[h],b>p&&++c>w&&f("overflow"),p==b){for(k=c,n=x;o=g>=n?y:n>=g+z?z:n-g,!(o>k);n+=x)t=k-o,s=x-o,u.push(L(l(o+t%s,0))),k=K(t/s);u.push(L(l(k,0))),g=m(c,r,d==e),c=0,++d}++c,++b}return u.join("")}function p(a){return h(a,function(a){return F.test(a)?n(a.slice(4).toLowerCase()):a})}function q(a){return h(a,function(a){return G.test(a)?"xn--"+o(a):a})}var r="object"==typeof d&&d&&!d.nodeType&&d,s="object"==typeof c&&c&&!c.nodeType&&c,t="object"==typeof b&&b;(t.global===t||t.window===t||t.self===t)&&(e=t);var u,v,w=2147483647,x=36,y=1,z=26,A=38,B=700,C=72,D=128,E="-",F=/^xn--/,G=/[^\x20-\x7E]/,H=/[\x2E\u3002\uFF0E\uFF61]/g,I={overflow:"Overflow: input needs wider integers to process","not-basic":"Illegal input >= 0x80 (not a basic code point)","invalid-input":"Invalid input"},J=x-y,K=Math.floor,L=String.fromCharCode;if(u={version:"1.3.2",ucs2:{decode:i,encode:j},decode:n,encode:o,toASCII:q,toUnicode:p},"function"==typeof a&&"object"==typeof a.amd&&a.amd)a("punycode",function(){return u});else if(r&&s)if(c.exports==r)s.exports=u;else for(v in u)u.hasOwnProperty(v)&&(r[v]=u[v]);else e.punycode=u}(this)}).call(this,"undefined"!=typeof global?global:"undefined"!=typeof self?self:"undefined"!=typeof window?window:{})},{}]},{},[2])(2)});
+
+var url = "http://cdn.roothost.co.uk/page.html";
+url = url.split("/")[2];
+var parsed = psl.parse(url);
+document.getElementById("output").textContent = parsed.domain;
+
+    }
+
+</script>
+
+</head>
+<body>
+  <div id="output"></div>
+  
+  <script>
+    // tell the embed parent frame the height of the content
+    if (window.parent && window.parent.parent){
+      window.parent.parent.postMessage(["resultsFrame", {
+        height: document.body.getBoundingClientRect().height,
+        slug: "6aqdbL71"
+      }], "*")
+    }
+  </script>
+</body>
+</html>
